@@ -6,10 +6,12 @@ Skills and MCP settings for using [Moatlight](https://www.moatlight.com) from an
 - OpenAPI: https://www.moatlight.com/openapi.json
 - MCP: https://www.moatlight.com/mcp
 - Skills index: https://www.moatlight.com/.well-known/agent-skills/index.json
+- MCP server page: https://www.moatlight.com/docs/mcp
+- CLI and SDKs: `packages/` (TypeScript, Python, command line)
 
 ## Connect the MCP server
 
-One URL, no API key. The client opens the OAuth login in a browser the first time a tool needs your account. Add `?readonly=true` to the URL for read-only tools.
+One URL, no API key. The client opens the OAuth login in a browser the first time a tool needs your account. Add `?readonly=true` to the URL to list only the read tools on that connection (it does not change what the login allows; approve only the read scopes if you want that).
 
 ```
 Claude Code:

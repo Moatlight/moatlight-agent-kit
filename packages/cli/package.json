@@ -1,0 +1,19 @@
+{
+  "name": "@moatlight/cli",
+  "version": "1.1.0",
+  "description": "Moatlight command line: product facts, sandbox, reports and agent readiness from a terminal or an AI agent. JSON output.",
+  "homepage": "https://www.moatlight.com/docs",
+  "repository": { "type": "git", "url": "git+https://github.com/gentlemankz/moatlight-agent-kit.git", "directory": "packages/cli" },
+  "bugs": { "email": "ceo@moatlight.com" },
+  "license": "MIT",
+  "author": { "name": "Moatlight", "url": "https://www.moatlight.com" },
+  "keywords": ["moatlight", "cli", "geo", "aeo", "ai-search", "ai-visibility"],
+  "type": "module",
+  "bin": { "moatlight": "./dist/cli.js" },
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "dependencies": { "@moatlight/sdk": "^1.1.0" },
+  "devDependencies": { "typescript": "^5.6.0", "@types/node": "^22.0.0" },
+  "scripts": { "build": "tsc -p tsconfig.json", "prepublishOnly": "npm run build" },
+  "publishConfig": { "access": "public" }
+}

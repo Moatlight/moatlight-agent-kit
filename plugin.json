@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "moatlight",
+  "version": "1.1.0",
+  "description": "Measure whether ChatGPT and Google AI Overview name a business, and read a ranked plan of changes. Skills and an MCP server for AI agents.",
+  "author": {
+    "name": "Moatlight",
+    "url": "https://www.moatlight.com"
+  },
+  "homepage": "https://www.moatlight.com/docs",
+  "repository": "https://github.com/gentlemankz/moatlight-agent-kit",
+  "license": "MIT",
+  "keywords": [
+    "geo",
+    "aeo",
+    "ai-search",
+    "seo",
+    "mcp",
+    "visibility"
+  ]
+}

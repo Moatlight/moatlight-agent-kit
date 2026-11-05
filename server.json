@@ -3,8 +3,28 @@
   "name": "com.moatlight/mcp",
   "title": "Moatlight",
   "description": "Measure AI search visibility: start reports, read results and the ranked plan.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "websiteUrl": "https://www.moatlight.com/docs",
+  "repository": {
+    "url": "https://github.com/gentlemankz/moatlight-agent-kit",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://www.moatlight.com/moatlight-symbol.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": [
+        "any"
+      ]
+    },
+    {
+      "src": "https://www.moatlight.com/android-chrome-512x512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    }
+  ],
   "remotes": [
     {
       "type": "streamable-http",

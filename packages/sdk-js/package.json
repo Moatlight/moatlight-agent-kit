@@ -1,0 +1,20 @@
+{
+  "name": "@moatlight/sdk",
+  "version": "1.1.0",
+  "description": "Official TypeScript/JavaScript client for the Moatlight API: measure whether ChatGPT and Google AI Overview name a business.",
+  "homepage": "https://www.moatlight.com/docs",
+  "repository": { "type": "git", "url": "git+https://github.com/gentlemankz/moatlight-agent-kit.git", "directory": "packages/sdk-js" },
+  "bugs": { "email": "ceo@moatlight.com" },
+  "license": "MIT",
+  "author": { "name": "Moatlight", "url": "https://www.moatlight.com" },
+  "keywords": ["moatlight", "geo", "aeo", "ai-search", "ai-visibility", "mcp", "sdk"],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" } },
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "scripts": { "build": "tsc -p tsconfig.json", "test": "node --test test/*.test.mjs", "prepublishOnly": "npm run build" },
+  "devDependencies": { "typescript": "^5.6.0", "@types/node": "^22.0.0" },
+  "publishConfig": { "access": "public" }
+}

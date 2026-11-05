@@ -6,7 +6,7 @@ This repository holds the agent kit for [Moatlight](https://www.moatlight.com): 
 
 - To use Moatlight from an agent, read `skills/` first. Each `SKILL.md` is one job.
 - To call the API, read https://www.moatlight.com/openapi.json (OpenAPI) and https://www.moatlight.com/docs. Public endpoints and a sandbox (https://www.moatlight.com/api/v1/sandbox) need no login.
-- To log in, follow https://www.moatlight.com/auth.md: OAuth 2.0 authorization code with PKCE; apps register themselves. Ask only for the scopes you need: account:read, reports:read, reports:write, agent-readiness:read, agent-readiness:scan.
+- To log in, follow https://www.moatlight.com/auth.md: OAuth 2.0 authorization code with PKCE; an app uses an HTTPS client_id metadata URL (CIMD) or registers itself (RFC 7591). Ask only for the scopes you need: account:read, reports:read, reports:write, agent-readiness:read, agent-readiness:scan.
 - MCP servers: https://www.moatlight.com/mcp (product), https://www.moatlight.com/mcp/docs (docs). Streamable HTTP.
 
 ## Rules
@@ -15,11 +15,14 @@ This repository holds the agent kit for [Moatlight](https://www.moatlight.com): 
 - Never invent facts about a business. Show the user what the report proposes and ask.
 - Do not promise traffic, leads or dates. Reports show counts of answers.
 - You cannot pay. The Early Access pass (agent readiness) is bought by a person at https://www.moatlight.com/pricing.
+- Writes are safe to retry: send an `Idempotency-Key` header (the SDKs do). Lists are cursor-paged (`limit`, `cursor`, `next_cursor`). Read `RateLimit` headers and wait for `Retry-After` on a 429.
 - Do not edit the files in `skills/` by hand; they are generated from the site (`npm run agent-kit` in the application repository).
 
 ## Files
 
+- `plugin.json` and `mcp.json`: Agent Plugins manifest (agent-plugins.org 1.0.0) and its MCP servers.
 - `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`: Claude Code plugin and marketplace.
-- `.mcp.json`: the two MCP servers.
+- `.mcp.json`: the two MCP servers, Claude Code format.
+- `packages/`: `sdk-js` (@moatlight/sdk), `cli` (@moatlight/cli) and `sdk-py` (moatlight on PyPI). Edit them in the application repository, not here.
 - `server.json`: MCP Registry entry.
 - `skills/*/SKILL.md`: agent skills (agentskills.io format).

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "moatlight"
+version = "1.1.0"
+description = "Official Python client for the Moatlight API: measure whether ChatGPT and Google AI Overview name a business."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Moatlight", email = "ceo@moatlight.com" }]
+keywords = ["moatlight", "geo", "aeo", "ai-search", "ai-visibility", "mcp", "sdk"]
+classifiers = ["License :: OSI Approved :: MIT License", "Programming Language :: Python :: 3", "Typing :: Typed"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://www.moatlight.com"
+Documentation = "https://www.moatlight.com/docs"
+Repository = "https://github.com/gentlemankz/moatlight-agent-kit"
+"OpenAPI" = "https://www.moatlight.com/openapi.json"
+
+[tool.setuptools]
+packages = ["moatlight"]
+
+[tool.setuptools.package-data]
+moatlight = ["py.typed"]
