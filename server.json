@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "com.moatlight/mcp",
+  "title": "Moatlight",
+  "description": "Measure AI search visibility: start reports, read results and the ranked plan.",
+  "version": "1.0.0",
+  "websiteUrl": "https://moatlight.com/docs",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://moatlight.com/mcp"
+    }
+  ]
+}

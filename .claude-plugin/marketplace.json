@@ -1,0 +1,14 @@
+{
+  "name": "moatlight",
+  "owner": {
+    "name": "Moatlight",
+    "url": "https://moatlight.com"
+  },
+  "plugins": [
+    {
+      "name": "moatlight",
+      "source": "./",
+      "description": "Measure whether ChatGPT and Google AI Overview name a business, and read a ranked plan of changes. Skills and an MCP server for AI agents."
+    }
+  ]
+}
