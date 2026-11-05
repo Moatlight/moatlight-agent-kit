@@ -23,6 +23,6 @@ This repository holds the agent kit for [Moatlight](https://www.moatlight.com): 
 - `plugin.json` and `mcp.json`: Agent Plugins manifest (agent-plugins.org 1.0.0) and its MCP servers.
 - `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`: Claude Code plugin and marketplace.
 - `.mcp.json`: the two MCP servers, Claude Code format.
-- `packages/`: `sdk-js` (@moatlight/sdk), `cli` (@moatlight/cli) and `sdk-py` (moatlight on PyPI). Edit them in the application repository, not here.
+- `packages/`: `sdk-js` (@moatlight/sdk), `cli` (@moatlight/cli) `sdk-py` (moatlight on PyPI), `sdk-rb` (RubyGem) and `sdk-go` (Go module). Edit them in the application repository, not here.
 - `server.json`: MCP Registry entry.
 - `skills/*/SKILL.md`: agent skills (agentskills.io format).
