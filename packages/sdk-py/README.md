@@ -19,4 +19,4 @@ for r in api.all_reports():                    # follows next_cursor
     print(r["id"], r["stage"])
 ```
 
-Network errors, 429 and 5xx are retried (`Retry-After` honoured); errors raise `MoatlightError` with `status`, `code`, `message`, `hint`. Docs: https://www.moatlight.com/docs · Source: https://github.com/gentlemankz/moatlight-agent-kit · MIT
+Network errors, 429 and 5xx are retried (`Retry-After` honoured); errors raise `MoatlightError` with `status`, `code`, `message`, `hint`. Docs: https://www.moatlight.com/docs · Source: https://github.com/Moatlight/moatlight-agent-kit · MIT

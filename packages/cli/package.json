@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "Moatlight command line: product facts, sandbox, reports and agent readiness from a terminal or an AI agent. JSON output.",
   "homepage": "https://www.moatlight.com/docs",
-  "repository": { "type": "git", "url": "git+https://github.com/gentlemankz/moatlight-agent-kit.git", "directory": "packages/cli" },
+  "repository": { "type": "git", "url": "git+https://github.com/Moatlight/moatlight-agent-kit.git", "directory": "packages/cli" },
   "bugs": { "email": "ceo@moatlight.com" },
   "license": "MIT",
   "author": { "name": "Moatlight", "url": "https://www.moatlight.com" },

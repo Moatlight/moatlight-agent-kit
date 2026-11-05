@@ -17,7 +17,7 @@ dependencies = []
 [project.urls]
 Homepage = "https://www.moatlight.com"
 Documentation = "https://www.moatlight.com/docs"
-Repository = "https://github.com/gentlemankz/moatlight-agent-kit"
+Repository = "https://github.com/Moatlight/moatlight-agent-kit"
 "OpenAPI" = "https://www.moatlight.com/openapi.json"
 
 [tool.setuptools]

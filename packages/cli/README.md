@@ -14,4 +14,4 @@ moatlight reports start <id>
 moatlight reports actions <id>
 ```
 
-Run `moatlight --help` for every command. `MOATLIGHT_TOKEN` or `--token` skips `login`. Docs: https://www.moatlight.com/docs · Source: https://github.com/gentlemankz/moatlight-agent-kit · MIT
+Run `moatlight --help` for every command. `MOATLIGHT_TOKEN` or `--token` skips `login`. Docs: https://www.moatlight.com/docs · Source: https://github.com/Moatlight/moatlight-agent-kit · MIT

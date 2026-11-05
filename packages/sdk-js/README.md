@@ -25,4 +25,4 @@ for await (const r of api.allReports()) console.log(r.id, r.stage) // follows ne
 - `api.lastRateLimit` holds the `RateLimit-*` headers of the last answer.
 - Errors are `MoatlightError` with `status`, `code`, `detail` and `hint`.
 
-Docs: https://www.moatlight.com/docs · OpenAPI: https://www.moatlight.com/openapi.json · Source: https://github.com/gentlemankz/moatlight-agent-kit · MIT
+Docs: https://www.moatlight.com/docs · OpenAPI: https://www.moatlight.com/openapi.json · Source: https://github.com/Moatlight/moatlight-agent-kit · MIT

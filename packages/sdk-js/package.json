@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "Official TypeScript/JavaScript client for the Moatlight API: measure whether ChatGPT and Google AI Overview name a business.",
   "homepage": "https://www.moatlight.com/docs",
-  "repository": { "type": "git", "url": "git+https://github.com/gentlemankz/moatlight-agent-kit.git", "directory": "packages/sdk-js" },
+  "repository": { "type": "git", "url": "git+https://github.com/Moatlight/moatlight-agent-kit.git", "directory": "packages/sdk-js" },
   "bugs": { "email": "ceo@moatlight.com" },
   "license": "MIT",
   "author": { "name": "Moatlight", "url": "https://www.moatlight.com" },

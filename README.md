@@ -18,7 +18,7 @@ Claude Code:
 claude mcp add --transport http moatlight https://www.moatlight.com/mcp
 
 Claude Code plugin (MCP, skills and the docs server together):
-claude plugin marketplace add gentlemankz/moatlight-agent-kit
+claude plugin marketplace add Moatlight/moatlight-agent-kit
 claude plugin install moatlight@moatlight
 
 Codex:
@@ -41,7 +41,7 @@ Any other client (VS Code, Windsurf, Claude Desktop):
 ## Install the skills only
 
 ```bash
-npx skills add gentlemankz/moatlight-agent-kit
+npx skills add Moatlight/moatlight-agent-kit
 ```
 
 License: MIT for the files in this repository. Moatlight itself is a hosted service.
