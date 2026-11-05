@@ -9,7 +9,7 @@
   "author": { "name": "Moatlight", "url": "https://www.moatlight.com" },
   "keywords": ["moatlight", "cli", "geo", "aeo", "ai-search", "ai-visibility"],
   "type": "module",
-  "bin": { "moatlight": "./dist/cli.js" },
+  "bin": { "moatlight": "dist/cli.js" },
   "files": ["dist", "README.md", "LICENSE"],
   "engines": { "node": ">=18" },
   "dependencies": { "@moatlight/sdk": "^1.1.0" },
