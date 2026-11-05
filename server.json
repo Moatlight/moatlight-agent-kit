@@ -4,11 +4,11 @@
   "title": "Moatlight",
   "description": "Measure AI search visibility: start reports, read results and the ranked plan.",
   "version": "1.0.0",
-  "websiteUrl": "https://moatlight.com/docs",
+  "websiteUrl": "https://www.moatlight.com/docs",
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://moatlight.com/mcp"
+      "url": "https://www.moatlight.com/mcp"
     }
   ]
 }

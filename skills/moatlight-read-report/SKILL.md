@@ -3,15 +3,15 @@ name: moatlight-read-report
 description: Read a finished Moatlight report and turn it into a short, honest summary and a ranked to-do list: how often AI named the business, which brands it named instead, and the next three changes. Use after a report is finished.
 license: Proprietary. Describes the public Moatlight API.
 metadata:
-  homepage: https://moatlight.com/docs
+  homepage: https://www.moatlight.com/docs
 ---
 
 # Read a Moatlight report
 
 ## Get the data
 
-- `GET https://moatlight.com/api/v1/reports/{id}` (scope `reports:read`) → `summary`: `answers`, `named`, `share_of_voice`, `rank`, `per_engine`, `top_brands`, `lost_questions`.
-- `GET https://moatlight.com/api/v1/reports/{id}/actions` → `moves` (up to three) and `lost_questions`.
+- `GET https://www.moatlight.com/api/v1/reports/{id}` (scope `reports:read`) → `summary`: `answers`, `named`, `share_of_voice`, `rank`, `per_engine`, `top_brands`, `lost_questions`.
+- `GET https://www.moatlight.com/api/v1/reports/{id}/actions` → `moves` (up to three) and `lost_questions`.
 
 ## How to report it
 

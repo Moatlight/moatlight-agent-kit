@@ -4,10 +4,10 @@
   "description": "Measure whether ChatGPT and Google AI Overview name a business, and read a ranked plan of changes. Skills and an MCP server for AI agents.",
   "author": {
     "name": "Moatlight",
-    "url": "https://moatlight.com"
+    "url": "https://www.moatlight.com"
   },
-  "homepage": "https://moatlight.com/docs",
-  "privacyPolicyUrl": "https://moatlight.com/privacy",
+  "homepage": "https://www.moatlight.com/docs",
+  "privacyPolicyUrl": "https://www.moatlight.com/privacy",
   "license": "MIT",
   "keywords": [
     "geo",

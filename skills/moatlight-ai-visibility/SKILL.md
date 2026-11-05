@@ -3,7 +3,7 @@ name: moatlight-ai-visibility
 description: Measure whether ChatGPT and Google AI Overview name a business when its buyers ask for what it sells, and which rivals they name instead. Use when a user asks about AI search visibility, GEO or AEO for a website.
 license: Proprietary. Describes the public Moatlight API.
 metadata:
-  homepage: https://moatlight.com/docs
+  homepage: https://www.moatlight.com/docs
 ---
 
 # Measure AI visibility with Moatlight
@@ -14,16 +14,16 @@ Use this when the user wants to know if AI answer engines recommend their busine
 
 - Moatlight reads **public websites** and asks ChatGPT and Google AI Overview about ~50 buyer questions. It takes about two minutes.
 - Free plan: **one website**, **one report every 30 days**, no card. Do not start a report unless the user wants it; it uses their allowance.
-- Test your calls first on the no-login sandbox: `https://moatlight.com/api/v1/sandbox`.
+- Test your calls first on the no-login sandbox: `https://www.moatlight.com/api/v1/sandbox`.
 
 ## Steps
 
-1. Connect with OAuth 2.0 (see https://moatlight.com/auth.md). Scopes: `reports:read reports:write account:read`.
-2. `GET https://moatlight.com/api/v1/me` → check `plan` and `limits`.
-3. `POST https://moatlight.com/api/v1/reports` with `{"website":"yourcompany.com"}` → returns a report in stage `analyzing`.
-4. Poll `GET https://moatlight.com/api/v1/reports/{id}` every 5 seconds until `stage` is `needs_confirmation`.
+1. Connect with OAuth 2.0 (see https://www.moatlight.com/auth.md). Scopes: `reports:read reports:write account:read`.
+2. `GET https://www.moatlight.com/api/v1/me` → check `plan` and `limits`.
+3. `POST https://www.moatlight.com/api/v1/reports` with `{"website":"yourcompany.com"}` → returns a report in stage `analyzing`.
+4. Poll `GET https://www.moatlight.com/api/v1/reports/{id}` every 5 seconds until `stage` is `needs_confirmation`.
 5. Show the user `profile` and `questions`. Ask if they look right. Do not invent facts about the business.
-6. `POST https://moatlight.com/api/v1/reports/{id}/start` (optionally `{"question_ids":[...]}`, 3 to 6 ids) → stage `running`.
+6. `POST https://www.moatlight.com/api/v1/reports/{id}/start` (optionally `{"question_ids":[...]}`, 3 to 6 ids) → stage `running`.
 7. Poll until `stage` is `finished`, then read `summary`.
 
 ## Errors you will meet

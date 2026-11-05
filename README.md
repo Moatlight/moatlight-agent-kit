@@ -1,11 +1,11 @@
 # Moatlight agent kit
 
-Skills and MCP settings for using [Moatlight](https://moatlight.com) from an AI agent.
+Skills and MCP settings for using [Moatlight](https://www.moatlight.com) from an AI agent.
 
-- Docs: https://moatlight.com/docs
-- OpenAPI: https://moatlight.com/openapi.json
-- MCP: https://moatlight.com/mcp
-- Skills index: https://moatlight.com/.well-known/agent-skills/index.json
+- Docs: https://www.moatlight.com/docs
+- OpenAPI: https://www.moatlight.com/openapi.json
+- MCP: https://www.moatlight.com/mcp
+- Skills index: https://www.moatlight.com/.well-known/agent-skills/index.json
 
 ## Connect the MCP server
 
@@ -13,24 +13,24 @@ One URL, no API key. The client opens the OAuth login in a browser the first tim
 
 ```
 Claude Code:
-claude mcp add --transport http moatlight https://moatlight.com/mcp
+claude mcp add --transport http moatlight https://www.moatlight.com/mcp
 
 Claude Code plugin (MCP, skills and the docs server together):
 claude plugin marketplace add gentlemankz/moatlight-agent-kit
 claude plugin install moatlight@moatlight
 
 Codex:
-codex mcp add moatlight --url https://moatlight.com/mcp
+codex mcp add moatlight --url https://www.moatlight.com/mcp
 
 Cursor:
-cursor://anysphere.cursor-deeplink/mcp/install?name=moatlight&config=eyJ1cmwiOiJodHRwczovL21vYXRsaWdodC5jb20vbWNwIn0%3D
+cursor://anysphere.cursor-deeplink/mcp/install?name=moatlight&config=eyJ1cmwiOiJodHRwczovL3d3dy5tb2F0bGlnaHQuY29tL21jcCJ9
 
 Any other client (VS Code, Windsurf, Claude Desktop):
 {
   "mcpServers": {
     "moatlight": {
       "type": "http",
-      "url": "https://moatlight.com/mcp"
+      "url": "https://www.moatlight.com/mcp"
     }
   }
 }
