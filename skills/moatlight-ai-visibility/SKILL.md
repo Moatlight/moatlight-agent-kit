@@ -40,7 +40,7 @@ Checklist before step 4: the user confirmed the profile, the questions match wha
 
 - A report is about a **website**, not a brand name. Ask for the domain.
 - `needs_confirmation` is a real pause. Do not call `start` before the user answers.
-- The numbers are counts of answers from two engines on a fixed question set. They say nothing about traffic.
+- The numbers are counts of answers on a fixed question set from the engines the account includes (two or four; `get_account` lists them in `limits.engines`). They say nothing about traffic.
 
 ## Do not
 
