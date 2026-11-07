@@ -2,7 +2,7 @@
 // Safe retries: network errors, 429 and 5xx are retried with backoff (Retry-After honoured), and every write
 // carries an Idempotency-Key, so a retry can never start a second report.
 
-export const DEFAULT_BASE_URL = "https://www.moatlight.com"
+export const DEFAULT_BASE_URL = "https://moatlight.com"
 
 export type Stage = "analyzing" | "analysis_failed" | "needs_confirmation" | "running" | "finished" | "failed"
 
@@ -75,7 +75,7 @@ export class Moatlight {
     this.baseUrl = (options.baseUrl ?? DEFAULT_BASE_URL).replace(/\/$/, "")
     this.maxRetries = options.maxRetries ?? 3
     this.doFetch = options.fetch ?? fetch
-    this.userAgent = options.userAgent ?? "moatlight-sdk-js/1.1.0"
+    this.userAgent = options.userAgent ?? "moatlight-sdk-js/1.1.1"
   }
 
   setToken(token: string) { this.token = token }

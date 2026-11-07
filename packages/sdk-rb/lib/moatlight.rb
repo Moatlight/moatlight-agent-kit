@@ -9,7 +9,7 @@ require "uri"
 require_relative "moatlight/version"
 
 module Moatlight
-  DEFAULT_BASE_URL = "https://www.moatlight.com".freeze
+  DEFAULT_BASE_URL = "https://moatlight.com".freeze
 
   # An API error: HTTP status plus the code, message and hint from the JSON error body.
   class Error < StandardError

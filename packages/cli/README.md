@@ -1,6 +1,6 @@
 # @moatlight/cli
 
-Command line for [Moatlight](https://www.moatlight.com): product facts, the no-login sandbox, reports and agent readiness. JSON on stdout, messages on stderr, exit code 0 / 1 (API error) / 2 (usage), so it works in scripts and for AI agents.
+Command line for [Moatlight](https://moatlight.com): product facts, the no-login sandbox, reports and agent readiness. JSON on stdout, messages on stderr, exit code 0 / 1 (API error) / 2 (usage), so it works in scripts and for AI agents.
 
 ```bash
 npm install -g @moatlight/cli     # or: npx @moatlight/cli product
@@ -14,4 +14,4 @@ moatlight reports start <id>
 moatlight reports actions <id>
 ```
 
-Run `moatlight --help` for every command. `MOATLIGHT_TOKEN` or `--token` skips `login`. Docs: https://www.moatlight.com/docs · Source: https://github.com/Moatlight/moatlight-agent-kit · MIT
+Run `moatlight --help` for every command. `MOATLIGHT_TOKEN` or `--token` skips `login`. Docs: https://moatlight.com/docs · Source: https://github.com/Moatlight/moatlight-agent-kit · MIT

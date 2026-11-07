@@ -2,11 +2,11 @@
 name: moatlight-fix-agent-readiness
 description: "Turn the ranked fixes from a Moatlight agent readiness scan into small, verified changes in the user's own codebase: llms.txt, OpenAPI, MCP server card, OAuth metadata, JSON errors, rate limit headers and similar. Use when the user wants to raise their agent readiness score, make their site or API easier for AI agents, or asks you to implement the scan's recommendations."
 license: MIT
-compatibility: "Needs read and write access to the user's repository and network access to www.moatlight.com and the user's live site."
+compatibility: "Needs read and write access to the user's repository and network access to moatlight.com and the user's live site."
 metadata:
   author: Moatlight
-  version: "1.2.0"
-  homepage: https://www.moatlight.com/docs
+  version: "1.2.1"
+  homepage: https://moatlight.com/docs
 ---
 
 # Fix agent readiness

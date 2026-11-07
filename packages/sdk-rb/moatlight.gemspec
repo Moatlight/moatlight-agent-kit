@@ -8,14 +8,14 @@ Gem::Specification.new do |s|
   s.authors = ["Moatlight"]
   s.email = "ceo@moatlight.com"
   s.license = "MIT"
-  s.homepage = "https://www.moatlight.com"
+  s.homepage = "https://moatlight.com"
   s.required_ruby_version = ">= 2.7"
   s.files = Dir["lib/**/*.rb", "README.md", "LICENSE"]
   s.require_paths = ["lib"]
   s.metadata = {
-    "homepage_uri" => "https://www.moatlight.com",
+    "homepage_uri" => "https://moatlight.com",
     "source_code_uri" => "https://github.com/Moatlight/moatlight-agent-kit",
-    "documentation_uri" => "https://www.moatlight.com/docs",
+    "documentation_uri" => "https://moatlight.com/docs",
     "bug_tracker_uri" => "https://github.com/Moatlight/moatlight-agent-kit/issues",
     "rubygems_mfa_required" => "true"
   }

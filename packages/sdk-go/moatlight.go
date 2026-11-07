@@ -1,4 +1,4 @@
-// Package moatlight is the official Go client for the Moatlight API (https://www.moatlight.com/docs).
+// Package moatlight is the official Go client for the Moatlight API (https://moatlight.com/docs).
 //
 // Standard library only. Writes carry an Idempotency-Key that stays the same across retries, and network
 // errors, 429 and 5xx are retried (Retry-After honoured), so a retry can never start a second report.
@@ -19,8 +19,8 @@ import (
 )
 
 const (
-	Version        = "1.1.0"
-	DefaultBaseURL = "https://www.moatlight.com"
+	Version        = "1.1.1"
+	DefaultBaseURL = "https://moatlight.com"
 )
 
 // Error is an API error: HTTP status plus the code, message and hint from the JSON error body.

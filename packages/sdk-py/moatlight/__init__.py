@@ -14,8 +14,8 @@ import urllib.request
 import uuid
 from typing import Any, Dict, Iterator, List, Optional
 
-__version__ = "1.1.0"
-DEFAULT_BASE_URL = "https://www.moatlight.com"
+__version__ = "1.1.1"
+DEFAULT_BASE_URL = "https://moatlight.com"
 __all__ = ["Moatlight", "MoatlightError", "DEFAULT_BASE_URL", "__version__"]
 
 

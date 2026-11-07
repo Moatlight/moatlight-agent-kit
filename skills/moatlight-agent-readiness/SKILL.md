@@ -2,22 +2,22 @@
 name: moatlight-agent-readiness
 description: "Scan a website for how well AI agents can find and use it (llms.txt, OpenAPI, MCP, OAuth, discovery files) and return a score, grade and ranked fixes. Use when the user wants their site, docs or API to work for AI agents, asks for an agent readiness score, or asks why agents fail on their site. Needs the Early Access pass, which a person must buy. To apply the fixes, use moatlight-fix-agent-readiness."
 license: MIT
-compatibility: "Needs network access to www.moatlight.com. Works in any agent that can make HTTPS calls or use an MCP server."
+compatibility: "Needs network access to moatlight.com. Works in any agent that can make HTTPS calls or use an MCP server."
 metadata:
   author: Moatlight
-  version: "1.2.0"
-  homepage: https://www.moatlight.com/docs
+  version: "1.2.1"
+  homepage: https://moatlight.com/docs
 ---
 
 # Agent readiness scan
 
-Needs the **Early Access pass** (US$10 one-time). Without it the API answers `402 needs_early_access_pass` with `upgrade_url`. A person must buy it in a browser at https://www.moatlight.com/pricing. You cannot pay.
+Needs the **Early Access pass** (US$10 one-time). Without it the API answers `402 needs_early_access_pass` with `upgrade_url`. A person must buy it in a browser at https://moatlight.com/pricing. You cannot pay.
 
 ## Steps
 
-1. Scopes: `agent-readiness:read agent-readiness:scan`. The scan belongs to a report, so you need a report id (`GET https://www.moatlight.com/api/v1/reports`).
-2. `GET https://www.moatlight.com/api/v1/reports/{id}/agent-readiness` → newest stored scan (`404 no_scan` if none).
-3. No scan, or the user just deployed a fix: `POST https://www.moatlight.com/api/v1/reports/{id}/agent-readiness/scan`. It runs, or reuses a result under 24 hours old. Send `{"force":true}` only after a fix is live.
+1. Scopes: `agent-readiness:read agent-readiness:scan`. The scan belongs to a report, so you need a report id (`GET https://moatlight.com/api/v1/reports`).
+2. `GET https://moatlight.com/api/v1/reports/{id}/agent-readiness` → newest stored scan (`404 no_scan` if none).
+3. No scan, or the user just deployed a fix: `POST https://moatlight.com/api/v1/reports/{id}/agent-readiness/scan`. It runs, or reuses a result under 24 hours old. Send `{"force":true}` only after a fix is live.
 4. Read `score`, `max_score`, `grade`, `layers` and `top_fixes`.
 
 ## Answer in this shape

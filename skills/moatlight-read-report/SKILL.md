@@ -2,20 +2,20 @@
 name: moatlight-read-report
 description: "Read a finished Moatlight report and turn it into a short, honest summary and a ranked to-do list: how often AI named the business, which brands it named instead, and the next three changes. Use when a report has finished, or when the user asks what their AI visibility results mean, who beats them in ChatGPT answers, or what to change first."
 license: MIT
-compatibility: "Needs network access to www.moatlight.com. Works in any agent that can make HTTPS calls or use an MCP server."
+compatibility: "Needs network access to moatlight.com. Works in any agent that can make HTTPS calls or use an MCP server."
 metadata:
   author: Moatlight
-  version: "1.2.0"
-  homepage: https://www.moatlight.com/docs
+  version: "1.2.1"
+  homepage: https://moatlight.com/docs
 ---
 
 # Read a Moatlight report
 
 ## Get the data
 
-- `GET https://www.moatlight.com/api/v1/reports/{id}` (scope `reports:read`) → `stage` and, when `finished`, `summary`: `answers`, `named`, `share_of_voice`, `rank`, `per_engine`, `top_brands`, `lost_questions`.
-- `GET https://www.moatlight.com/api/v1/reports/{id}/actions` → `moves` (up to three) and `lost_questions`.
-- Do not know the id? `GET https://www.moatlight.com/api/v1/reports?limit=10`.
+- `GET https://moatlight.com/api/v1/reports/{id}` (scope `reports:read`) → `stage` and, when `finished`, `summary`: `answers`, `named`, `share_of_voice`, `rank`, `per_engine`, `top_brands`, `lost_questions`.
+- `GET https://moatlight.com/api/v1/reports/{id}/actions` → `moves` (up to three) and `lost_questions`.
+- Do not know the id? `GET https://moatlight.com/api/v1/reports?limit=10`.
 
 If `stage` is not `finished`, say so and stop. Do not summarize a partial report.
 

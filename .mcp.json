@@ -2,11 +2,11 @@
   "mcpServers": {
     "moatlight": {
       "type": "http",
-      "url": "https://www.moatlight.com/mcp"
+      "url": "https://moatlight.com/mcp"
     },
     "moatlight-docs": {
       "type": "http",
-      "url": "https://www.moatlight.com/mcp/docs"
+      "url": "https://moatlight.com/mcp/docs"
     }
   }
 }

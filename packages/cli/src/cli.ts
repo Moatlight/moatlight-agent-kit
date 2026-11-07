@@ -80,7 +80,7 @@ async function login(baseUrl: string, email: string | undefined) {
 
 async function main() {
   const { flags, rest } = parse(process.argv.slice(2))
-  if (flags.version) return console.log("1.1.0")
+  if (flags.version) return console.log("1.1.1")
   if (flags.help || rest.length === 0) return console.log(HELP)
   const saved = readSaved()
   const baseUrl = String(flags["base-url"] ?? process.env.MOATLIGHT_BASE_URL ?? saved?.base_url ?? DEFAULT_BASE_URL)
