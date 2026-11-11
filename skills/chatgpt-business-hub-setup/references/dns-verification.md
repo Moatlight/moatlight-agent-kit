@@ -1,6 +1,8 @@
 # DNS TXT verification
 
-Contents: Facts, Find the DNS host, Read the live docs, Field rules, Check before Verify, Troubleshooting.
+Updated 12 Nov 2026: two-column card, per-host Name field table, existing-record check, Hostinger path.
+
+Contents: Facts, Find the DNS host, Read the live docs, Field rules, Name field by DNS host, Existing record, Check before Verify, Troubleshooting.
 
 ## Facts
 
@@ -53,12 +55,38 @@ If the page cannot be read, say so, then give these generic steps marked **[veri
 
 ## Field rules
 
-- **Host.** Many panels append the domain. Then enter only `openai-business-profile`. If the panel shows the full name or asks for a fully qualified name, enter `openai-business-profile.<domain>`. Pasting the full name where the domain is appended gives `openai-business-profile.example.com.example.com`. After saving, look at the record list: it should show one `.example.com`.
+- **Host.** OpenAI's screen always shows the full name `openai-business-profile.<domain>`. What the DNS panel wants differs. Many panels append the domain: enter only `openai-business-profile`. If the panel asks for a fully qualified name, enter the full name. Pasting the full name where the domain is appended gives `openai-business-profile.example.com.example.com`. Always show both in the card (OpenAI column, DNS-host column). After saving, look at the record list: it should show one `.example.com`. `scripts/check-txt.sh` flags a doubled host.
 - **Value.** Paste exactly, starting with `openai-business-profile=`. No added quotes, spaces or line breaks. Some panels add quotes themselves. Do not double them. Long values are split into chunks by some providers. That is fine.
 - **TTL.** Lowest available (Auto, 1 minute, 300 seconds). The window is 30 minutes.
 - **Type.** `TXT`. Not CNAME.
 - **Other TXT records** on the same name are not affected. Add a new record. Do not edit the SPF record.
 - Have the DNS page open first. Then generate or reload the OpenAI screen, copy, paste, save. This keeps the 30 minutes for propagation.
+
+## Name field by DNS host
+
+What to type in the DNS host's Name or Host field. Only Hostinger is confirmed from the provider's own page. The rest are starting points: fetch the live page and replace this guess with what it says.
+
+| DNS host | Name field takes | Evidence |
+|---|---|---|
+| Hostinger | `openai-business-profile` (prefix). Help page: for a subdomain "enter the subdomain's name as a host", e.g. `shop` | **[P]** read 12 Nov 2026 |
+| Cloudflare | `openai-business-profile` (prefix; the panel shows the full name as a preview) | **[I]** **[verify]** |
+| GoDaddy | `openai-business-profile` (prefix) | **[I]** **[verify]** |
+| Namecheap | `openai-business-profile` (prefix, Host column) | **[I]** **[verify]** |
+| Amazon Route 53 | `openai-business-profile` (prefix, Record name) | **[I]** **[verify]** |
+| Vercel DNS | `openai-business-profile` (prefix) | **[I]** **[verify]** |
+| Squarespace, Wix, Porkbun | prefix in most cases | **[I]** **[verify]** |
+
+If the host accepts either form, give the prefix: it cannot double.
+
+Hostinger click path **[P]** (read 12 Nov 2026 at `hostinger.com/support/1583249-how-to-manage-dns-records-at-hostinger/` and `hostinger.com/support/1583664-how-to-manage-txt-records-at-hostinger/`): dashboard > **Domains** > the domain > **DNS / Nameservers** > **DNS records** tab > **Manage DNS records** card: Type `TXT`, Name, TXT value, TTL (defaults to 14400, which Hostinger allows when nothing else is required) > **Add Record**. Hostinger says changes can take up to 24 hours to propagate. The 30-minute OpenAI window is the tighter limit, so check with `scripts/check-txt.sh`.
+
+## Existing record
+
+Before asking the user to add anything, run `scripts/check-txt.sh <domain>` (no value). It lists TXT records already on `openai-business-profile.<domain>`.
+
+- Equals the value on the OpenAI screen: current. Say "already added". Go to Verify.
+- Differs: from an earlier attempt. The new value must be added. Delete the old record or leave it; both work, but deleting avoids confusion.
+- Never call a record stale without comparing it to the screen. On 12 Nov 2026 a run told the owner to delete a record that was the live, correct one.
 
 ## Check before Verify
 
@@ -79,3 +107,4 @@ Without the script: `dig +short TXT openai-business-profile.<domain> @1.1.1.1`.
 | Verify says not found | Wait, re-run the check, confirm the value is the latest one on screen. |
 | Expired | Go Back, restart, replace the value. |
 | After success | The old TXT record can stay or be removed. Keep it until the user sees the domain as verified. |
+| `check-txt.sh` flags a doubled host | The full name was typed into a panel that appends the domain. Edit the record: Name = `openai-business-profile` only. |

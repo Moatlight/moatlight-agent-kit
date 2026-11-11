@@ -34,7 +34,7 @@ Then a second form, **Business Details**:
 | Physical address (no PO boxes) | "Start typing to autocomplete address...", or "or edit address manually" | Same idea |
 | Legal registered address | Checkbox "Same as physical address" | Not shown in the screenshot |
 
-Which tax field shows for Sole Proprietor and which for Entity is **[verify]**. Read the label on screen. Sole proprietors in the US usually have an SSN or an EIN. Entities have an EIN. Do not tell the user which to use; point them to their IRS or registration documents.
+Business name in this form: the same name typed at the start (step 2 of `step-by-step.md`). Which tax field shows for Sole Proprietor and which for Entity is **[verify]**. Read the label on screen. Sole proprietors in the US usually have an SSN or an EIN. Entities have an EIN. Do not tell the user which to use; point them to their IRS or registration documents.
 
 ## Prepare the user (checklist to read out)
 

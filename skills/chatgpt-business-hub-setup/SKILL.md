@@ -5,7 +5,7 @@ license: MIT
 compatibility: "Needs web search and page fetch to read the DNS host's current docs. Shell with dig and python3 is optional (scripts/). The user does the clicking and all sign-in, code and ID steps."
 metadata:
   author: Moatlight
-  version: "1.0.0"
+  version: "1.1.0"
   verified: "2026-11-12"
   homepage: https://chatgpt.com/business-hub
 ---
@@ -22,6 +22,19 @@ You are the preparer. The user clicks in `chatgpt.com`. You gather facts, write 
 - Do not invent business facts. Every value comes from the user's files or website. Mark guesses as guesses.
 - Verifying does not raise rankings or sales, and OpenAI does not guarantee approval. Say this once, early.
 - Facts here are mostly from screenshots of the live UI and secondary reports. OpenAI's help pages could not be fetched. Anything marked **[verify]** is unconfirmed.
+
+## Output rules (how every answer looks)
+
+The user copies from your answer, so format for copying. Long prose is the failure to avoid.
+
+- Lead with the numbered 17-step list in `references/step-by-step.md`, filled with the user's values. Mark each step `Done`, `NOW` or `Later`. Do not renumber, merge or skip steps.
+- Anything the user types or pastes goes in a code block or a table cell, alone, with no words around it.
+- Choices (category, delivery, returns) are tables: `Option | Exact text | Why in 8 words or fewer`. Then one question and a one-word reply. Prose may follow the table, 2 sentences at most. Do not write "My pick is..." paragraphs.
+- DNS is always a two-column card: what OpenAI's screen shows, and what to type at the DNS host. Never give only one.
+- Sentences under 20 words. No intro, no recap of what the user already said.
+- A "Heads up" list holds at most 3 lines and only things that can block verification (no physical address, no legal entity name, expiry time). Do not audit email, DMARC, SPF or anything outside Business Hub.
+- Do not repeat the status table inside the same answer as the step list. Give it at the end of the session (Step 9) or when asked.
+- If something was already done (the TXT record already exists and matches), say "already done" and move on. Do not ask the user to redo it.
 
 ## Step 0: Find the domain, or stop and ask
 
@@ -69,14 +82,15 @@ If a field is missing on the site, list it under "Needs the user" and ask once a
 
 ## Step 3: Domain verification (DNS TXT)
 
-The user will see "Verify that you control `<domain>`" with a TXT record. Full detail and pitfalls: `references/dns-verification.md`. Do this:
+The user will see "Verify that you control `<domain>`" with three rows: Type, Name or host, Value or content. Full detail and pitfalls: `references/dns-verification.md`. Card format: `references/step-by-step.md`. Do this:
 
-1. Pre-fill what is stable. The host is `openai-business-profile.<domain>` and the type is `TXT` (seen on moatlight.com and luframe.com, 11 to 12 Nov 2026). Tell the user the host. The value (`openai-business-profile=<token>`) is unique per attempt. Only the user can copy it from the screen. Never reuse a value from this skill or an old attempt.
+1. Fill what is stable. Type `TXT`. The OpenAI screen shows the host as `openai-business-profile.<domain>` (seen on moatlight.com and luframe.com, 11 to 12 Nov 2026). The value (`openai-business-profile=<token>`) is unique per attempt. Ask the user to click the copy icon next to **Value or content** and paste it, or to paste a screenshot. It is a public DNS record, not a secret. Never reuse a value from this skill or an old attempt.
 2. Detect the DNS host. Run `scripts/find-dns-host.sh <domain>`, or `dig NS <domain> +short` and map the name servers with `references/dns-verification.md`. The DNS host is where the name servers point. It is often not where the website is hosted.
-3. Fetch that provider's current help page for adding a TXT record. Search the web, read the page, and quote the click path from it. Do not write UI steps from memory. Cite the URL and the read date. If the page cannot be read, say so and give the generic steps marked **[verify]**.
-4. Give the user a card with the exact click path in that provider's UI, then Name, Type, Value and TTL fields to fill. Use `references/dns-verification.md` for the field rules (host entered as a prefix or full name, no quotes, lowest TTL).
-5. Timing. The record expires 30 minutes after the screen is shown ("Record expires ..." under the box). So: have the DNS page open first, then copy, paste, save. If it expires, go Back in the flow and start again. The value changes, so delete the old record.
-6. Check before the user clicks. Run `scripts/check-txt.sh <domain> "<value the user pasted>"`. It asks public resolvers and the authoritative name servers. When it prints MATCH, tell the user to wait a minute and click **Verify domain**. If it prints MISSING after 5 minutes, see the troubleshooting table.
+3. Look for an existing record. Run `scripts/check-txt.sh <domain>` with no value. If a record equals the value on the OpenAI screen, it is current: say so and go to step 6 of the list. Call a record stale and ask for deletion only when its value differs from the screen.
+4. Fetch that provider's current help page for adding a TXT record. Search the web, read the page, and quote the click path from it. Do not write UI steps from memory. Cite the URL and the read date. If the page cannot be read, say so and give the generic steps marked **[verify]**.
+5. Give the two-column DNS card: OpenAI screen value in column one, the exact text to type at this DNS host in column two (prefix or full host, from the help page). Add the click path as a numbered list and the TTL.
+6. Timing. The record expires 30 minutes after the screen is shown ("Record expires ..." under the box). Give the user the expiry time. Have the DNS page open first, then copy, paste, save. If it expires, go Back in the flow and start again. The value changes, so replace the old record.
+7. Check before the user clicks. Run `scripts/check-txt.sh <domain> "<value>"`. When it prints MATCH, tell the user to click **Verify domain**. If it prints MISSING after 5 minutes, see the troubleshooting table. The script also flags a doubled host.
 
 ## Step 4: Category and description
 
@@ -85,7 +99,7 @@ Screen: **Help people get to know `<Name>`**. Two fields: **Business category** 
 **Category.** Pick exactly one value from `references/categories.md`. It is the full list from the live dropdown. Rules:
 
 - Match what the business is, not what it sells to. A marketing software tool is `Software company` or `SaaS company`, not `Marketing agency`.
-- Give the user the best choice and two near alternatives with one line of reasoning each. Ask which one, then wait.
+- Show a three-row table (best fit, two near alternatives), each with a reason of 8 words or fewer, as in `references/step-by-step.md`. Ask for a one-word reply, then wait.
 - Spell it exactly as in the list.
 
 **Description: 293 to 300 characters, spaces included.** This is the target for this skill. OpenAI's own limit is **[verify]**. Write it, then count with `scripts/count-chars.sh`. Repeat until it prints PASS. Do not estimate the count.
@@ -94,30 +108,31 @@ Write it like this:
 
 - Plain text, one paragraph, no emoji, no list, no URL.
 - Say what the business is, who it serves, what it does, and one or two facts the website proves (location served, delivery area, years, specialty).
-- No superlatives ("best", "leading", "#1") unless the site proves it. No prices, discounts or dates that go stale. No competitor names.
+- No superlatives ("best", "leading", "#1") unless the site proves it. No prices, plans, free tiers, usage limits, "no card needed", discounts or dates: they go stale. No competitor names.
 - No health, child, religion, race, finance-distress, immigration or other sensitive data. The Terms bar "Prohibited Data". See `references/terms-flags.md`.
 - Written to be quoted by ChatGPT in answers: neutral and factual.
 
-Show the final text and its count. Ask the user to approve it.
+Show the final text alone in a code block, its count on the next line, then "Approve, or tell me what to change." Do not describe the draft in prose.
 
 ## Step 5: Contact, delivery, return
 
 All in `references/ui-flow.md` with exact labels.
 
+- Show steps 9 to 11 as one small table: `Step | Pick | Because` (see `references/step-by-step.md`).
 - **Contact** (phone and email are optional). Use an email on the business domain (work email works). Code by email or SMS comes to the user. Tell them: by using Business Hub they agree OpenAI's AI assistant may phone the business on behalf of users. There is an opt-out link in the Terms. Ask before putting a personal mobile number.
 - **Delivery**: `We don't offer delivery`, `Paid delivery`, or `Free delivery` (all orders or above a minimum spend). Choose from the shipping page. Digital-only or services: `We don't offer delivery`.
-- **Returns**: `Returns not accepted`, `Returns accepted, with fees`, or `Free returns`. For free returns a **Select return window** list appears: 14 days, 30 days, 45 days, 90 days, No time limit, Custom. Use the number in the site's return policy. If the site has no return policy, stop and ask the user. Do not pick one to get through.
+- **Returns**: `Returns not accepted`, `Returns accepted, with fees`, or `Free returns`. For free returns a **Select return window** list appears: 14 days, 30 days, 45 days, 90 days, No time limit, Custom. Use the number in the site's return policy. If the site has no return policy for what it sells (a refund rule on a digital pass is not a product return policy), stop, show the three options as a table and ask. Do not pick one to get through. Mark any guess **[verify]**.
 - Make the choice match the website. The profile and the site must agree.
 
 After **Submit**, the screen says "You've created `<Name>`", saved as a draft. It offers ad credit and a ChatGPT Business plan. Tell the user these are optional and paid products, and do not need to be touched to finish verifying. Then **Go to business overview**.
 
 ## Step 6: Identity verification (prepare, do not enter)
 
-The overview shows a **DRAFT** badge and a banner: "Verify your identity with a government-issued ID", required before editing business info or publishing a business agent. Prepare the user with `references/identity-and-business-details.md`:
+The overview shows a **DRAFT** badge and a banner: "Verify your identity with a government-issued ID", required before editing business info or publishing a business agent. These are steps 13 to 17 of the list. Prepare the user with `references/identity-and-business-details.md`:
 
 - ID documents offered in the user's region (seen: Driver License, National ID, PAN Card, Passport, Voter ID). The list depends on country.
 - A face check: look at the center, then left, then right.
-- A **Business details** form: business name, DBA name (optional), country, and **Sole Proprietor** or **Entity**. Then tax ID (US: SSN or EIN, 9 digits, no dashes), website, physical address (no PO boxes), legal registered address.
+- A **Business details** form: business name (the name from step 2), DBA name (optional), country, and **Sole Proprietor** or **Entity**. Then the tax field for that type (US: SSN or EIN, 9 digits, no dashes; table in `references/step-by-step.md`), website, physical address (no PO boxes), legal registered address. Ask which type the user is before naming the tax field.
 - Name, address and tax or registration number must match official records. Tell the user to check them against their registration documents before starting.
 - Have a camera, good light and the physical ID ready. Use a device the user trusts.
 
@@ -140,10 +155,11 @@ Read `references/insights-and-agents.md`. Cover briefly:
 
 ## Step 9: Hand back a status report
 
-Print this table, filled in. Mark each row `Done`, `Waiting on user`, `Waiting on OpenAI`, or `Blocked (why)`. Offer to save it as `chatgpt-business-hub/launch-pack.md` in the project. Save only if the user agrees, and never put IDs, tax numbers, codes or the full TXT value in it.
+Print this table, filled in, once, at the end (or when asked). Mark each row `Done`, `Waiting on user`, `Waiting on OpenAI`, or `Blocked (why)`. Offer to save it as `chatgpt-business-hub/launch-pack.md` in the project. Save only if the user agrees, and never put IDs, tax numbers, codes or the full TXT value in it.
 
 | Step | Status | Note |
 |---|---|---|
+| Business Hub opened, name created, "Through a website" chosen | | |
 | Domain found | | |
 | Eligibility understood | | |
 | DNS host detected | | |

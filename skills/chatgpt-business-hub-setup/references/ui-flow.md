@@ -2,7 +2,11 @@
 
 Source: screenshots of the live flow taken by the Moatlight team on 11 and 12 Nov 2026 (moatlight.com, luframe.com) **[P]**. Items from other people's screenshots are marked **[S]**. Flow order from screenshots, dark theme, signed in to a free ChatGPT account. Hub entry: `chatgpt.com/business-hub` or the sidebar **[S]**.
 
-Contents: 1 Interaction type, 2 Domain, 3 Category and description, 4 Contact, 5 Delivery, 6 Returns, 7 Created, 8 Overview, 9 Insights, 10 Identity, 11 Review.
+Contents: 0 Start, 1 Interaction type, 2 Domain, 3 Category and description, 4 Contact, 5 Delivery, 6 Returns, 7 Created, 8 Overview, 9 Insights, 10 Identity, 11 Review. The numbered list the user follows (17 steps) is in `step-by-step.md`.
+
+## 0. Start
+
+Updated 12 Nov 2026, as reported by the owner **[verify]** labels on the next run: open `chatgpt.com/business-hub`. Type the business name in the field. A row **Create `<Name>`** has a plus button: click it. Then screen 1. Then the website field takes the domain (screen 2 uses it).
 
 ## 1. How do customers usually interact with `<Name>`?
 
