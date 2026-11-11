@@ -1,6 +1,6 @@
 ---
 name: chatgpt-business-hub-setup
-description: "Prepare a business to claim its profile in OpenAI's Business Hub (Businesses in ChatGPT): find the domain, detect the DNS host, give exact DNS TXT verification steps, pick the business category, write the 293 to 300 character description, and ready the contact, delivery, return and government ID steps. Use when the user wants to claim, verify or set up their business in ChatGPT or Business Hub, add the openai-business-profile TXT record, choose a Business Hub category, prepare a Business Agent, or read Brand insights. Free, no Moatlight account needed."
+description: "Prepare a business to verify its profile in OpenAI's Business Hub (Businesses in ChatGPT): find the domain, detect the DNS host, give exact DNS TXT verification steps, pick the business category, write the 293 to 300 character description, and ready the contact, delivery, return and government ID steps. Use when the user wants to verify or set up their business in ChatGPT or Business Hub, add the openai-business-profile TXT record, choose a Business Hub category, prepare a Business Agent, or read Brand insights. Free, no Moatlight account needed."
 license: MIT
 compatibility: "Needs web search and page fetch to read the DNS host's current docs. Shell with dig and python3 is optional (scripts/). The user does the clicking and all sign-in, code and ID steps."
 metadata:
@@ -10,7 +10,7 @@ metadata:
   homepage: https://chatgpt.com/business-hub
 ---
 
-# Claim a business in ChatGPT (Business Hub)
+# Verify a business in ChatGPT (Business Hub)
 
 You are the preparer. The user clicks in `chatgpt.com`. You gather facts, write the exact values to paste, and check each step. OpenAI launched Businesses in ChatGPT as a beta on 10 Nov 2026, so screens can change. If a label on the user's screen differs from this skill, trust the screen and say so.
 
@@ -20,7 +20,7 @@ You are the preparer. The user clicks in `chatgpt.com`. You gather facts, write 
 - Never read the user's inbox or phone for a code unless they explicitly ask and a mail tool is already connected. Default: they type it.
 - Do not click Verify, Submit, ad credit or upgrade buttons for the user. Those are theirs.
 - Do not invent business facts. Every value comes from the user's files or website. Mark guesses as guesses.
-- Claiming does not raise rankings or sales, and OpenAI does not guarantee verification. Say this once, early.
+- Verifying does not raise rankings or sales, and OpenAI does not guarantee approval. Say this once, early.
 - Facts here are mostly from screenshots of the live UI and secondary reports. OpenAI's help pages could not be fetched. Anything marked **[verify]** is unconfirmed.
 
 ## Step 0: Find the domain, or stop and ask
@@ -43,7 +43,7 @@ Use the apex domain the user owns (`example.com`), not `www`. If the site lives 
 
 Read `references/insights-and-agents.md` section "Eligibility". Tell the user, in three lines:
 
-1. Claiming is open to eligible businesses where ChatGPT is available. Industry, location and integrity checks decide. No country list is published.
+1. Verification is open to eligible businesses where ChatGPT is available. Industry, location and integrity checks decide. No country list is published.
 2. Business Agents are US only, for ecommerce and online service businesses, at launch.
 3. Reports differ on service businesses and non-US businesses. A waitlist or "Coming soon" is possible. That is OpenAI's gate, not a mistake on their side.
 
@@ -109,7 +109,7 @@ All in `references/ui-flow.md` with exact labels.
 - **Returns**: `Returns not accepted`, `Returns accepted, with fees`, or `Free returns`. For free returns a **Select return window** list appears: 14 days, 30 days, 45 days, 90 days, No time limit, Custom. Use the number in the site's return policy. If the site has no return policy, stop and ask the user. Do not pick one to get through.
 - Make the choice match the website. The profile and the site must agree.
 
-After **Submit**, the screen says "You've created `<Name>`", saved as a draft. It offers ad credit and a ChatGPT Business plan. Tell the user these are optional and paid products, and do not need to be touched to finish claiming. Then **Go to business overview**.
+After **Submit**, the screen says "You've created `<Name>`", saved as a draft. It offers ad credit and a ChatGPT Business plan. Tell the user these are optional and paid products, and do not need to be touched to finish verifying. Then **Go to business overview**.
 
 ## Step 6: Identity verification (prepare, do not enter)
 
@@ -129,7 +129,7 @@ After submit the user sees: "Application in review. Status updates will appear i
 
 Show the six items in `references/terms-flags.md` in plain words, then let the user decide. This is not legal advice. Say that.
 
-## Step 8: After claiming: insights and agent
+## Step 8: After verifying: insights and agent
 
 Read `references/insights-and-agents.md`. Cover briefly:
 
@@ -169,6 +169,6 @@ End with the next single action for the user.
 | `check-txt.sh` says MISSING | Host typed wrong, or doubled (`openai-business-profile.example.com.example.com`). Enter only the prefix if the DNS panel appends the domain. Value has stray quotes or spaces. Record saved on the wrong DNS host. |
 | MATCH but Verify fails | Wait a few minutes and retry once. Then check the record has not expired (30 min). Start again for a new value. |
 | Record expired | Back, regenerate, replace the TXT value. |
-| Domain says already claimed | Another account claimed it. The profile menu has a dispute option **[S]**. Tell the user, do not retry. |
+| Domain says it is already verified or taken | Another account verified it. The profile menu has a dispute option **[S]**. Tell the user, do not retry. |
 | Category not in the list | Use the closest match. Do not invent one. |
 | Waitlist or "Coming soon" | OpenAI's gate. Save the facts sheet and description for later. |

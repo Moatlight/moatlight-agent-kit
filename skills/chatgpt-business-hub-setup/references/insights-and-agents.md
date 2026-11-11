@@ -7,13 +7,13 @@ Contents: Eligibility, Brand insights, Agent insights, Business Agent, Product f
 ## Eligibility
 
 - Beta launched 10 Nov 2026 **[S]**; confirmed by an OpenAI community post **[P]**.
-- Claiming: "any eligible business located where ChatGPT is available". Eligibility depends on industry, location, and verification and integrity checks. No country list **[S]**.
+- Verification: "any eligible business located where ChatGPT is available". Eligibility depends on industry, location, and verification and integrity checks. No country list **[S]**.
 - Business Agent: eligible US ecommerce and online service businesses with a website **[P]** (OpenAI community post).
 - Reports differ **[S]**:
   - One tester saw "Service" greyed out as "Coming soon" and physical locations sent to a waitlist. Others describe a broader scope.
-  - At least one non-US claim was waitlisted. One outlet says Europe is included.
-  - One developer says local businesses can claim only existing US listings (unverified).
-- No Ads account or Enterprise deal is needed to claim. Enterprise customers and advertisers can use their OpenAI rep. Shopify merchants can connect through Shopify **[S]**.
+  - At least one non-US verification request was waitlisted. One outlet says Europe is included.
+  - One developer says local businesses can verify only existing US listings (unverified).
+- No Ads account or Enterprise deal is needed to verify. Enterprise customers and advertisers can use their OpenAI rep. Shopify merchants can connect through Shopify **[S]**.
 - Free at launch. A paid model is not ruled out **[S]**.
 
 ## Brand insights
@@ -34,7 +34,7 @@ Limits **[S]**:
 - Data lags by about a day. Not clear how long history is kept. No export or API reported.
 - Many ChatGPT visits arrive without a referrer and land in Direct traffic in analytics.
 
-**Baseline.** On claim day, save: date, window (7D or 28D), Mentions, Website clicks, the five topics. Repeat weekly. Read changes as direction, not exact counts.
+**Baseline.** On verification day, save: date, window (7D or 28D), Mentions, Website clicks, the five topics. Repeat weekly. Read changes as direction, not exact counts.
 
 **Do not publish Insights.** The Terms treat Insight Data as OpenAI confidential. It may be used only to measure and improve the business's own use. Summaries for the owner and their service providers are fine. Public posts, case studies or sharing with third parties need OpenAI's written permission (Terms section 6).
 
@@ -65,8 +65,8 @@ Shown only when an agent is published **[S]**. Metrics are not documented in sou
 
 ## Gotchas
 
-- Claiming does not guarantee placement, traffic or sales. OpenAI says so.
-- OpenAI may create a listing for a business whether or not it is claimed, and may edit or replace what the business submits (Terms 4.1).
+- Verifying does not guarantee placement, traffic or sales. OpenAI says so.
+- OpenAI may create a listing for a business whether or not it is verified, and may edit or replace what the business submits (Terms 4.1).
 - Keep name, address, phone, description and prices identical on the site, Google Business Profile, social profiles and directories **[S]**.
 - No source confirms that schema markup, robots.txt rules or any crawler setting are required for Business Hub. Do not tell the user they are **[verify]**.
 
